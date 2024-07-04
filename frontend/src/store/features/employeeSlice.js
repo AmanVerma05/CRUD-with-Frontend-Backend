@@ -2,20 +2,20 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const fetchEmployees = createAsyncThunk('employees/fetchEmployees', async () => {
-  const response = await axios.get('http://localhost:8000/api/view');
+  const response = await axios.get('http://3.25.154.221:8000/api/view');
   return response.data;
 });
 
 export const addEmployee = createAsyncThunk('employees/addEmployee', async (employee) => {
-  await axios.post('http://localhost:8000/api/addemployee', employee);
+  await axios.post('http://3.25.154.221:8000/api/addemployee', employee);
 });
 
 export const updateEmployee = createAsyncThunk('employees/updateEmployee', async ({ emp_id, updatedData }) => {
-  await axios.patch(`http://localhost:8000/api/empupdate?emp_id=${emp_id}`, updatedData);
+  await axios.patch(`http://3.25.154.221:8000/api/empupdate?emp_id=${emp_id}`, updatedData);
 });
 
 export const deleteEmployee = createAsyncThunk('employees/deleteEmployee', async (emp_id) => {
-  await axios.delete(`http://localhost:8000/api/empdelete?emp_id=${emp_id}`);
+  await axios.delete(`http://3.25.154.221:8000/api/empdelete?emp_id=${emp_id}`);
 });
 
 const employeeSlice = createSlice({
